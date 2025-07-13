@@ -4,7 +4,6 @@ import 'package:managment/data/utlity.dart';
 import 'package:managment/widgets/chart.dart';
 
 import '../data/model/add_date.dart';
-import '../data/top.dart';
 
 class Statistics extends StatefulWidget {
   const Statistics({Key? key}) : super(key: key);
@@ -13,7 +12,7 @@ class Statistics extends StatefulWidget {
   State<Statistics> createState() => _StatisticsState();
 }
 
-ValueNotifier kj = ValueNotifier(0);
+ValueNotifier selectedValue = ValueNotifier(0);
 
 class _StatisticsState extends State<Statistics> {
   List day = ['Day', 'Week', 'Month', 'Year'];
@@ -26,7 +25,7 @@ class _StatisticsState extends State<Statistics> {
     return Scaffold(
       body: SafeArea(
         child: ValueListenableBuilder(
-          valueListenable: kj,
+          valueListenable: selectedValue,
           builder: (BuildContext context, dynamic value, Widget? child) {
             a = f[value];
             return custom();
@@ -64,7 +63,7 @@ class _StatisticsState extends State<Statistics> {
                           onTap: () {
                             setState(() {
                               index_color = index;
-                              kj.value = index;
+                              selectedValue.value = index;
                             });
                           },
                           child: Container(

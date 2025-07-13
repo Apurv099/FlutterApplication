@@ -128,7 +128,7 @@ class _Add_ScreenState extends State<Add_Screen> {
               initialDate: date,
               firstDate: DateTime(2020),
               lastDate: DateTime(2100));
-          if (newDate == Null) return;
+          if (newDate == null) return;
           setState(() {
             date = newDate!;
           });
